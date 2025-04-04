@@ -1,0 +1,10 @@
+const express = require("express");
+const taskRoute = express.Router();
+const taskController = require("../controllers/task.contoller");
+const authMw = require("../middlewares/auth.mdw");
+taskRoute.post("/createtask",taskController.createTask);
+taskRoute.get("/getALlTask",taskController.getAllTasks);
+taskRoute.get("/:id",taskController.getTaskById);
+taskRoute.patch("/updatedtask",taskController.updatedTask);
+taskRoute.delete("/deletetask",taskController.deleteTask);
+module.exports = taskRoute;
